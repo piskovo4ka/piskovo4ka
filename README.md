@@ -1,6 +1,6 @@
 - 👋 Hi, I’m @piskovo4ka
 - 👀 I’m interested in artificial intelligence, machine learning, data science and post-quantum cryptography
-- 🌱 I’m currently learning in different courses  of big data processing  
+- 🌱 I’m currently learning in different courses of neural networks and big data processing  
 - 💞️ I’m looking to collaboration on the following projects: computer vision, natural language processing and other projects of artificial intelligence
 - 📫 To reach me: https://t.me/piskovo4ka
 

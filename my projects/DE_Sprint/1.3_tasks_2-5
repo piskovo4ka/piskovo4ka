@@ -1,0 +1,568 @@
+{
+ "cells": [
+  {
+   "cell_type": "markdown",
+   "id": "b6a80887",
+   "metadata": {},
+   "source": [
+    "<h2> Задание 2. Полиндром </h2>\n"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 16,
+   "id": "58cbf4a8",
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "# создадим функцию, которая принимает на вход слово \n",
+    "# далее с помощью str.replace из входного слова убираются пробелы\n",
+    "# далее в цикле от первого символа до середины проверяется равенсто с симметричным символом с другого конца слова\n",
+    "\n",
+    "\n",
+    "def is_polindrom():\n",
+    "  word = input()\n",
+    "  word = word.replace(\" \", \"\")\n",
+    "  for i in range(len(word)//2):\n",
+    "    if word[i] != word[len(word)-i-1]:\n",
+    "      print('False')\n",
+    "      break\n",
+    "    \n",
+    "  else:\n",
+    "    print('True')  "
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 17,
+   "id": "48c14b04",
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "e r t tre\n",
+      "True\n"
+     ]
+    }
+   ],
+   "source": [
+    "is_polindrom()"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 18,
+   "id": "bec78163",
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "ervhufgbcvhy\n",
+      "False\n"
+     ]
+    }
+   ],
+   "source": [
+    "is_polindrom()"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 19,
+   "id": "e7379029",
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "ert tre\n",
+      "True\n"
+     ]
+    }
+   ],
+   "source": [
+    "is_polindrom()"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 20,
+   "id": "8ed61a6a",
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "tyyteui\n",
+      "False\n"
+     ]
+    }
+   ],
+   "source": [
+    "is_polindrom()"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 21,
+   "id": "3a5b2714",
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "er tyytre\n",
+      "True\n"
+     ]
+    }
+   ],
+   "source": [
+    "is_polindrom()"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "id": "74d76ac8",
+   "metadata": {},
+   "outputs": [],
+   "source": []
+  },
+  {
+   "cell_type": "markdown",
+   "id": "b1a24548",
+   "metadata": {},
+   "source": [
+    "<h2> Задание 3. Перевод арабского числа в римское </h2>"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 39,
+   "id": "1e9f888d",
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "# функия принимает на вход число в арабской системе\n",
+    "# если число четырехзначное, то сперва просходит умножение на 1000 (M)\n",
+    "# далее выбираются соответствующие строка и столбец из заранее заданного набора romans,\n",
+    "# которые соответствуют введенным цифрам арабского числа\n",
+    "\n",
+    "def romans():\n",
+    "    inp = str(input())\n",
+    "    result = ''\n",
+    "    romans = (\n",
+    "        ('C', 'CC', 'CCC', 'CD', 'D', 'DC', 'DCC', 'DCCC', 'CM', ''),\n",
+    "        ('X', 'XX', 'XXX', 'XL', 'L', 'LX', 'LXX', 'LXXX', 'XC', ''),\n",
+    "        ('I', 'II', 'III', 'IV', 'V', 'VI', 'VII', 'VIII', 'IX', '')\n",
+    "    )\n",
+    "\n",
+    "    for i in range(len(inp)):\n",
+    "        if i == 0 and len(inp) == 4:\n",
+    "            result += 'M' * int(inp[i])\n",
+    "        else:\n",
+    "            result += romans[(i - len(inp)) % 3][int(inp[i]) - 1]\n",
+    "\n",
+    "    return result"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 40,
+   "id": "932cb4bd",
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "1945\n"
+     ]
+    },
+    {
+     "data": {
+      "text/plain": [
+       "'MCMXLV'"
+      ]
+     },
+     "execution_count": 40,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "romans()"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 23,
+   "id": "0b1a727b",
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "1945\n"
+     ]
+    },
+    {
+     "data": {
+      "text/plain": [
+       "'MCMXLV'"
+      ]
+     },
+     "execution_count": 23,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "romans()"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 24,
+   "id": "2601d31b",
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "20\n"
+     ]
+    },
+    {
+     "data": {
+      "text/plain": [
+       "'XX'"
+      ]
+     },
+     "execution_count": 24,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "romans()"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 25,
+   "id": "1acf1581",
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "1378\n"
+     ]
+    },
+    {
+     "data": {
+      "text/plain": [
+       "'MCCCLXXVIII'"
+      ]
+     },
+     "execution_count": 25,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "romans()"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "id": "3581b94a",
+   "metadata": {},
+   "source": [
+    "<h2> Задание 4. Валидность скобок </h2>"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 26,
+   "id": "151a75d5",
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "open = [\"[\", \"{\", \"(\"]\n",
+    "close = [\"]\", \"}\", \")\"]"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 27,
+   "id": "23939c8d",
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "# функция принимает на вход строку, проходит по всем символам в строке и\n",
+    "# проверяет, если текущая скобка открывающаяся, то записывает ее в список mas\n",
+    "# когда попадает закрывающаяся скобка, то функция проверяет, наличие противоположной открывающей скобки к списке mas\n",
+    "# если такая скобка нашлась, то удаляем ее из списка\n",
+    "# таким образом, в случае, если у всех открывающихся скобок будут пары, \n",
+    "# то список mas после выполнения функции должен быит пустым (что проверяется в последнем if)\n",
+    "\n",
+    "def validity():\n",
+    "    s = input()\n",
+    "    mas = []\n",
+    "    for i in s:\n",
+    "        if i in open:\n",
+    "            mas.append(i)\n",
+    "        else:\n",
+    "            pos = close.index(i)\n",
+    "            if (len(mas) > 0) and (open[pos] == mas[len(mas) - 1]):\n",
+    "                mas.pop()\n",
+    "            else:\n",
+    "                return \"False\"\n",
+    "    if len(mas) == 0:\n",
+    "        return \"True\""
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 28,
+   "id": "61040a41",
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "{{]][\n"
+     ]
+    },
+    {
+     "data": {
+      "text/plain": [
+       "'False'"
+      ]
+     },
+     "execution_count": 28,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "validity()"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 29,
+   "id": "6c6b0474",
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "{{}}[[])\n"
+     ]
+    },
+    {
+     "data": {
+      "text/plain": [
+       "'False'"
+      ]
+     },
+     "execution_count": 29,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "validity()"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 30,
+   "id": "23e2f9d6",
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "{{([][]({}))}}\n"
+     ]
+    },
+    {
+     "data": {
+      "text/plain": [
+       "'True'"
+      ]
+     },
+     "execution_count": 30,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "validity()"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "id": "dbda99a7",
+   "metadata": {},
+   "source": [
+    "<h2> Задание 5. Умножить два бинарных числа в формате строк </h2>"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 31,
+   "id": "5379c20d",
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "# переведем полученные числа в десятичные, перемнозжим их и переведм обратно в двоичную систему счисления\n",
+    "\n",
+    "def bin_muity():\n",
+    "  x=int(input(),2)\n",
+    "  y=int(input(),2)\n",
+    "\n",
+    "  c = bin(x*y)\n",
+    "  return c"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 32,
+   "id": "ffaedcd1",
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "110\n",
+      "10\n"
+     ]
+    },
+    {
+     "data": {
+      "text/plain": [
+       "'0b1100'"
+      ]
+     },
+     "execution_count": 32,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "bin_muity()"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 33,
+   "id": "1f614565",
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "100\n",
+      "1000\n"
+     ]
+    },
+    {
+     "data": {
+      "text/plain": [
+       "'0b100000'"
+      ]
+     },
+     "execution_count": 33,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "bin_muity()"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 34,
+   "id": "d62077e5",
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "1111\n",
+      "1111\n"
+     ]
+    },
+    {
+     "data": {
+      "text/plain": [
+       "'0b11100001'"
+      ]
+     },
+     "execution_count": 34,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "bin_muity()"
+   ]
+  }
+ ],
+ "metadata": {
+  "kernelspec": {
+   "display_name": "Python 3 (ipykernel)",
+   "language": "python",
+   "name": "python3"
+  },
+  "language_info": {
+   "codemirror_mode": {
+    "name": "ipython",
+    "version": 3
+   },
+   "file_extension": ".py",
+   "mimetype": "text/x-python",
+   "name": "python",
+   "nbconvert_exporter": "python",
+   "pygments_lexer": "ipython3",
+   "version": "3.9.12"
+  },
+  "toc": {
+   "base_numbering": 1,
+   "nav_menu": {},
+   "number_sections": true,
+   "sideBar": true,
+   "skip_h1_title": false,
+   "title_cell": "Table of Contents",
+   "title_sidebar": "Contents",
+   "toc_cell": false,
+   "toc_position": {},
+   "toc_section_display": true,
+   "toc_window_display": false
+  }
+ },
+ "nbformat": 4,
+ "nbformat_minor": 5
+}
